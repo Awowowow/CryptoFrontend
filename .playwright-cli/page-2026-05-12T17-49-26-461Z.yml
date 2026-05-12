@@ -1,0 +1,150 @@
+- main [ref=e3]:
+  - generic [ref=e5]:
+    - link "CryptoEx Buy, sell, trade" [ref=e6] [cursor=pointer]:
+      - /url: /
+      - img [ref=e8]
+      - generic [ref=e11]:
+        - paragraph [ref=e12]: CryptoEx
+        - paragraph [ref=e13]: Buy, sell, trade
+    - navigation [ref=e14]:
+      - link "Home" [ref=e15] [cursor=pointer]:
+        - /url: /
+      - link "Security" [ref=e16] [cursor=pointer]:
+        - /url: /security
+      - button "Buy Crypto Soon" [ref=e17] [cursor=pointer]:
+        - text: Buy Crypto
+        - generic [ref=e18]: Soon
+      - button "Markets Soon" [ref=e19] [cursor=pointer]:
+        - text: Markets
+        - generic [ref=e20]: Soon
+      - button "Fees Soon" [ref=e21] [cursor=pointer]:
+        - text: Fees
+        - generic [ref=e22]: Soon
+    - generic [ref=e23]:
+      - link "Sign in" [ref=e24] [cursor=pointer]:
+        - /url: /auth/login
+      - link "Create account" [ref=e25] [cursor=pointer]:
+        - /url: /auth/signup
+  - generic [ref=e28]:
+    - generic [ref=e30]:
+      - generic [ref=e31]:
+        - generic [ref=e32]: CryptoEx exchange
+        - heading "Buy, sell, and trade crypto with security built in from day one." [level=1] [ref=e33]
+        - paragraph [ref=e34]: Create an account, secure it with authenticator protection, and get ready for simple crypto buying, selling, funding, and trading flows as markets open.
+        - generic [ref=e35]:
+          - link "Create account" [ref=e36] [cursor=pointer]:
+            - /url: /auth/signup
+            - text: Create account
+            - img [ref=e37]
+          - link "Explore the exchange" [ref=e39] [cursor=pointer]:
+            - /url: /overview
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - generic [ref=e43]:
+            - paragraph [ref=e44]: Buy crypto
+            - paragraph [ref=e45]: Start with popular assets
+          - img [ref=e47]
+        - generic [ref=e49]:
+          - paragraph [ref=e50]: Choose asset
+          - generic [ref=e51]:
+            - paragraph [ref=e53]: BTC
+            - paragraph [ref=e55]: ETH
+            - paragraph [ref=e57]: SOL
+        - generic [ref=e58]:
+          - generic [ref=e59]:
+            - img [ref=e60]
+            - generic [ref=e62]: Bank transfer
+          - generic [ref=e63]:
+            - img [ref=e64]
+            - generic [ref=e66]: Debit card
+        - generic [ref=e68]:
+          - generic [ref=e69]:
+            - img [ref=e70]
+            - generic [ref=e73]: Authenticator protection for new devices
+          - generic [ref=e74]:
+            - img [ref=e75]
+            - generic [ref=e78]: Trusted devices for faster sign-in
+          - generic [ref=e79]:
+            - img [ref=e80]
+            - generic [ref=e83]: Fresh verification for sensitive actions
+    - generic [ref=e84]:
+      - generic [ref=e85]:
+        - img [ref=e86]
+        - heading "Buy crypto" [level=2] [ref=e88]
+        - paragraph [ref=e89]: Prepare your account for simple purchase flows with card and bank funding options.
+      - generic [ref=e90]:
+        - img [ref=e91]
+        - heading "Trade markets" [level=2] [ref=e93]
+        - paragraph [ref=e94]: BTC, ETH, and SOL markets are planned with clean account and trading eligibility flows.
+      - generic [ref=e95]:
+        - img [ref=e96]
+        - heading "Secure account" [level=2] [ref=e99]
+        - paragraph [ref=e100]: Protect sign-ins with email verification, authenticator checks, and trusted devices.
+    - generic [ref=e101]:
+      - generic [ref=e102]:
+        - generic [ref=e103]:
+          - paragraph [ref=e104]: Popular assets
+          - heading "Markets coming to CryptoEx" [level=2] [ref=e105]
+        - img [ref=e106]
+      - generic [ref=e108]:
+        - generic [ref=e109]:
+          - generic [ref=e110]:
+            - generic [ref=e111]:
+              - paragraph [ref=e112]: Bitcoin
+              - paragraph [ref=e113]: BTC
+            - generic [ref=e114]: Soon
+          - paragraph [ref=e115]: Buy, sell, and trade coming soon
+        - generic [ref=e116]:
+          - generic [ref=e117]:
+            - generic [ref=e118]:
+              - paragraph [ref=e119]: Ethereum
+              - paragraph [ref=e120]: ETH
+            - generic [ref=e121]: Soon
+          - paragraph [ref=e122]: Buy, sell, and trade coming soon
+        - generic [ref=e123]:
+          - generic [ref=e124]:
+            - generic [ref=e125]:
+              - paragraph [ref=e126]: Solana
+              - paragraph [ref=e127]: SOL
+            - generic [ref=e128]: Soon
+          - paragraph [ref=e129]: Buy, sell, and trade coming soon
+    - generic [ref=e130]:
+      - paragraph [ref=e131]: Ways to fund
+      - heading "Choose how you move money" [level=2] [ref=e132]
+      - generic [ref=e133]:
+        - generic [ref=e134]:
+          - img [ref=e135]
+          - paragraph [ref=e137]: Bank transfer
+          - paragraph [ref=e138]: Move funds from your bank account once fiat rails are available.
+        - generic [ref=e139]:
+          - img [ref=e140]
+          - paragraph [ref=e142]: Debit card
+          - paragraph [ref=e143]: Fast card purchases are planned for the buy crypto flow.
+        - generic [ref=e144]:
+          - img [ref=e145]
+          - paragraph [ref=e148]: Crypto deposits
+          - paragraph [ref=e149]: Deposit addresses and confirmations will appear when crypto wallets launch.
+    - generic [ref=e150]:
+      - paragraph [ref=e151]: Security
+      - heading "Designed to protect accounts before funds move" [level=2] [ref=e152]
+      - generic [ref=e153]:
+        - generic [ref=e154]:
+          - img [ref=e156]
+          - generic [ref=e159]:
+            - paragraph [ref=e160]: Two-factor protection
+            - paragraph [ref=e161]: Use an authenticator app to protect sign-ins and sensitive account actions.
+        - generic [ref=e162]:
+          - img [ref=e164]
+          - generic [ref=e167]:
+            - paragraph [ref=e168]: Verified accounts
+            - paragraph [ref=e169]: Email verification is live now, with KYC levels planned for trading eligibility.
+        - generic [ref=e170]:
+          - img [ref=e172]
+          - generic [ref=e176]:
+            - paragraph [ref=e177]: Trusted device control
+            - paragraph [ref=e178]: Known devices can sign in faster without weakening high-risk action checks.
+        - generic [ref=e179]:
+          - img [ref=e181]
+          - generic [ref=e183]:
+            - paragraph [ref=e184]: Support-ready flows
+            - paragraph [ref=e185]: Account recovery, alerts, and support pages are planned as the product grows.

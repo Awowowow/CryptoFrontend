@@ -1,0 +1,140 @@
+- main [ref=e3]:
+  - generic [ref=e5]:
+    - link "CryptoEx Buy, sell, trade" [ref=e6] [cursor=pointer]:
+      - /url: /
+      - img [ref=e8]
+      - generic [ref=e11]:
+        - paragraph [ref=e12]: CryptoEx
+        - paragraph [ref=e13]: Buy, sell, trade
+    - navigation [ref=e14]:
+      - link "Home" [ref=e15] [cursor=pointer]:
+        - /url: /
+      - link "Security" [ref=e16] [cursor=pointer]:
+        - /url: /security
+      - button "Buy Crypto Soon" [ref=e17] [cursor=pointer]:
+        - text: Buy Crypto
+        - generic [ref=e18]: Soon
+      - button "Markets Soon" [ref=e19] [cursor=pointer]:
+        - text: Markets
+        - generic [ref=e20]: Soon
+      - button "Fees Soon" [ref=e21] [cursor=pointer]:
+        - text: Fees
+        - generic [ref=e22]: Soon
+    - generic [ref=e23]:
+      - link "Sign in" [ref=e24] [cursor=pointer]:
+        - /url: /auth/login
+      - link "Create account" [ref=e25] [cursor=pointer]:
+        - /url: /auth/signup
+  - generic [ref=e28]:
+    - generic [ref=e30]:
+      - generic [ref=e31]:
+        - generic [ref=e32]: CryptoEx exchange
+        - heading "Buy, sell, and trade crypto with security built in from day one." [level=1] [ref=e33]
+        - paragraph [ref=e34]: Create an account, secure it with authenticator protection, and get ready for simple crypto buying, selling, funding, and trading flows as markets open.
+        - generic [ref=e35]:
+          - link "Create account" [ref=e36] [cursor=pointer]:
+            - /url: /auth/signup
+            - text: Create account
+            - img [ref=e37]
+          - link "Explore the exchange" [ref=e39] [cursor=pointer]:
+            - /url: /overview
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - img [ref=e44]
+          - generic [ref=e47]:
+            - paragraph [ref=e48]: Account protection
+            - paragraph [ref=e49]: Security center live
+        - generic [ref=e50]:
+          - generic [ref=e51]:
+            - img [ref=e52]
+            - generic [ref=e55]: Email-verified account creation
+          - generic [ref=e56]:
+            - img [ref=e57]
+            - generic [ref=e60]: Authenticator protection for new devices
+          - generic [ref=e61]:
+            - img [ref=e62]
+            - generic [ref=e65]: Trusted devices for faster sign-in
+          - generic [ref=e66]:
+            - img [ref=e67]
+            - generic [ref=e70]: Fresh verification for sensitive actions
+    - generic [ref=e71]:
+      - generic [ref=e72]:
+        - img [ref=e73]
+        - heading "Protected sign-in" [level=2] [ref=e77]
+        - paragraph [ref=e78]: Keep account access safer with browser-based sessions, logout protection, and verified email ownership.
+      - generic [ref=e79]:
+        - img [ref=e80]
+        - heading "Authenticator 2FA" [level=2] [ref=e82]
+        - paragraph [ref=e83]: Google Authenticator compatible setup, login challenges, and sensitive-action checks.
+      - generic [ref=e84]:
+        - img [ref=e85]
+        - heading "Trusted-device flow" [level=2] [ref=e88]
+        - paragraph [ref=e89]: Known devices can sign in faster while sensitive actions stay protected.
+    - generic [ref=e90]:
+      - generic [ref=e91]:
+        - generic [ref=e92]:
+          - paragraph [ref=e93]: Popular assets
+          - heading "Markets coming to CryptoEx" [level=2] [ref=e94]
+        - img [ref=e95]
+      - generic [ref=e97]:
+        - generic [ref=e98]:
+          - generic [ref=e99]:
+            - generic [ref=e100]:
+              - paragraph [ref=e101]: Bitcoin
+              - paragraph [ref=e102]: BTC
+            - generic [ref=e103]: Soon
+          - paragraph [ref=e104]: Buy, sell, and trade coming soon
+        - generic [ref=e105]:
+          - generic [ref=e106]:
+            - generic [ref=e107]:
+              - paragraph [ref=e108]: Ethereum
+              - paragraph [ref=e109]: ETH
+            - generic [ref=e110]: Soon
+          - paragraph [ref=e111]: Buy, sell, and trade coming soon
+        - generic [ref=e112]:
+          - generic [ref=e113]:
+            - generic [ref=e114]:
+              - paragraph [ref=e115]: Solana
+              - paragraph [ref=e116]: SOL
+            - generic [ref=e117]: Soon
+          - paragraph [ref=e118]: Buy, sell, and trade coming soon
+    - generic [ref=e119]:
+      - paragraph [ref=e120]: Ways to fund
+      - heading "Choose how you move money" [level=2] [ref=e121]
+      - generic [ref=e122]:
+        - generic [ref=e123]:
+          - img [ref=e124]
+          - paragraph [ref=e126]: Bank transfer
+          - paragraph [ref=e127]: Move funds from your bank account once fiat rails are available.
+        - generic [ref=e128]:
+          - img [ref=e129]
+          - paragraph [ref=e131]: Debit card
+          - paragraph [ref=e132]: Fast card purchases are planned for the buy crypto flow.
+        - generic [ref=e133]:
+          - img [ref=e134]
+          - paragraph [ref=e137]: Crypto deposits
+          - paragraph [ref=e138]: Deposit addresses and confirmations will appear when crypto wallets launch.
+    - generic [ref=e139]:
+      - paragraph [ref=e140]: Security
+      - heading "Designed to protect accounts before funds move" [level=2] [ref=e141]
+      - generic [ref=e142]:
+        - generic [ref=e143]:
+          - img [ref=e145]
+          - generic [ref=e148]:
+            - paragraph [ref=e149]: Two-factor protection
+            - paragraph [ref=e150]: Use an authenticator app to protect sign-ins and sensitive account actions.
+        - generic [ref=e151]:
+          - img [ref=e153]
+          - generic [ref=e156]:
+            - paragraph [ref=e157]: Verified accounts
+            - paragraph [ref=e158]: Email verification is live now, with KYC levels planned for trading eligibility.
+        - generic [ref=e159]:
+          - img [ref=e161]
+          - generic [ref=e165]:
+            - paragraph [ref=e166]: Trusted device control
+            - paragraph [ref=e167]: Known devices can sign in faster without weakening high-risk action checks.
+        - generic [ref=e168]:
+          - img [ref=e170]
+          - generic [ref=e172]:
+            - paragraph [ref=e173]: Support-ready flows
+            - paragraph [ref=e174]: Account recovery, alerts, and support pages are planned as the product grows.
