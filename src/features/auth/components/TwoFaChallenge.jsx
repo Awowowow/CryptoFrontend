@@ -4,6 +4,7 @@ import Card from '../../../components/ui/Card'
 import Input from '../../../components/ui/Input'
 
 const TwoFaChallenge = ({
+  asCard = true,
   isLoading,
   otp,
   rememberDevice,
@@ -11,24 +12,28 @@ const TwoFaChallenge = ({
   onRememberChange,
   onSubmit,
 }) => {
-  return (
-    <Card className="border-blue-200 bg-blue-50">
+  const content = (
+    <>
       <div className="flex items-center gap-3">
-        <Smartphone className="text-blue-700" size={22} />
+        <div className="grid size-11 place-items-center rounded-xl bg-blue-100 text-blue-700">
+          <Smartphone size={22} />
+        </div>
         <div>
-          <h2 className="text-lg font-semibold text-slate-950">2FA challenge</h2>
-          <p className="text-sm text-blue-800">Password accepted. Enter your authenticator code.</p>
+          <h2 className="text-lg font-semibold text-slate-950">Enter authenticator code</h2>
+          <p className="text-sm text-slate-500">Password accepted. Complete 2FA to sign in.</p>
         </div>
       </div>
       <form className="mt-5 space-y-4" onSubmit={onSubmit}>
         <Input
+          autoComplete="one-time-code"
+          inputMode="numeric"
           label="Authenticator code"
           maxLength={6}
           placeholder="123456"
           value={otp}
           onChange={(event) => onOtpChange(event.target.value)}
         />
-        <label className="flex items-center gap-3 text-sm font-medium text-slate-700">
+        <label className="flex items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm font-medium text-slate-700">
           <input
             checked={rememberDevice}
             className="size-4 accent-blue-600"
@@ -41,6 +46,16 @@ const TwoFaChallenge = ({
           {isLoading ? 'Working...' : 'Verify and sign in'}
         </Button>
       </form>
+    </>
+  )
+
+  if (!asCard) {
+    return content
+  }
+
+  return (
+    <Card className="border-blue-200 bg-blue-50">
+      {content}
     </Card>
   )
 }

@@ -10,16 +10,16 @@ const OverviewPage = () => {
   const { recentTwoFaVerified, user } = useSelector((state) => state.auth)
 
   return (
-    <div className="space-y-5">
+    <div className="space-y-6">
       <WebsiteHero />
-      <div className="grid gap-5 xl:grid-cols-[1fr_0.78fr]">
-        <section className="space-y-5">
+      <div className="grid gap-6 xl:grid-cols-[1fr_0.78fr]">
+        <section className="space-y-6">
           <ExchangeOverview user={user} recentTwoFaVerified={recentTwoFaVerified} />
           <PopularAssets />
           <FundingMethods />
         </section>
 
-        <section className="space-y-5">
+        <section className="space-y-6">
           <TrustAndSecurity />
           <SecurityPanel />
         </section>

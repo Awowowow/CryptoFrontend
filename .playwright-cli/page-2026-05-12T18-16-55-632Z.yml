@@ -1,0 +1,54 @@
+- main [ref=e3]:
+  - generic [ref=e5]:
+    - link "CryptoEx Buy, sell, trade" [ref=e6] [cursor=pointer]:
+      - /url: /
+      - img [ref=e8]
+      - generic [ref=e11]:
+        - paragraph [ref=e12]: CryptoEx
+        - paragraph [ref=e13]: Buy, sell, trade
+    - generic [ref=e14]:
+      - link "Sign in" [ref=e15] [cursor=pointer]:
+        - /url: /auth/login
+      - link "Create account" [ref=e16] [cursor=pointer]:
+        - /url: /auth/signup
+  - generic [ref=e19]:
+    - generic [ref=e20]:
+      - generic [ref=e22]:
+        - link "CryptoEx Secure exchange access" [ref=e23] [cursor=pointer]:
+          - /url: /
+          - img [ref=e25]
+          - generic [ref=e28]:
+            - paragraph [ref=e29]: CryptoEx
+            - paragraph [ref=e30]: Secure exchange access
+        - heading "Welcome back to your crypto account." [level=1] [ref=e31]
+        - paragraph [ref=e32]: Sign in to manage account security today and prepare for funding, wallets, and trading as the exchange opens more features.
+      - generic [ref=e33]:
+        - generic [ref=e34]:
+          - img [ref=e35]
+          - generic [ref=e39]: Secure cookie sessions
+        - generic [ref=e40]:
+          - img [ref=e41]
+          - generic [ref=e43]: Authenticator checks on new devices
+        - generic [ref=e44]:
+          - img [ref=e45]
+          - generic [ref=e48]: Trusted device support
+    - generic [ref=e51]:
+      - generic [ref=e52]: Sign in
+      - heading "Access your account" [level=2] [ref=e53]
+      - paragraph [ref=e54]: Continue with your email and password. New devices may need an authenticator code.
+      - generic [ref=e56]:
+        - generic [ref=e57]:
+          - text: Email
+          - textbox "Email" [ref=e58]:
+            - /placeholder: aarav@example.com
+        - generic [ref=e59]:
+          - text: Password
+          - textbox "Password" [ref=e60]:
+            - /placeholder: Minimum 8 characters
+        - button "Continue securely" [ref=e61] [cursor=pointer]:
+          - img [ref=e62]
+          - text: Continue securely
+      - paragraph [ref=e65]:
+        - text: New to CryptoEx?
+        - link "Create an account" [ref=e66] [cursor=pointer]:
+          - /url: /auth/signup

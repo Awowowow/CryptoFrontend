@@ -1,9 +1,9 @@
-import { LogOut, RefreshCcw } from 'lucide-react'
+import { LogOut } from 'lucide-react'
 import Card from '../../../components/ui/Card'
 import Metric from '../../../components/ui/Metric'
 import Button from '../../../components/ui/Button'
 
-const SessionCard = ({ isLoading, recentTwoFaVerified, user, onLogout, onRefresh }) => {
+const SessionCard = ({ isLoading, recentTwoFaVerified, user, onLogout }) => {
   return (
     <Card>
       <div className="flex items-start justify-between gap-4">
@@ -19,10 +19,7 @@ const SessionCard = ({ isLoading, recentTwoFaVerified, user, onLogout, onRefresh
         <Metric label="2FA status" value={user.isTwoFaEnabled ? 'Enabled' : 'Not enabled'} />
         <Metric label="Step-up window" value={recentTwoFaVerified ? 'Verified' : 'Not fresh'} />
       </div>
-      <div className="mt-5 grid gap-3 sm:grid-cols-2">
-        <Button disabled={isLoading} icon={RefreshCcw} variant="secondary" onClick={onRefresh}>
-          Refresh session
-        </Button>
+      <div className="mt-5">
         <Button disabled={isLoading} icon={LogOut} variant="secondary" onClick={onLogout}>
           Log out
         </Button>

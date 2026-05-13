@@ -61,40 +61,64 @@ export const PopularAssets = () => {
 
 export const FundingMethods = () => {
   return (
-    <Card>
-      <p className="text-sm font-semibold uppercase text-blue-600">Ways to fund</p>
-      <h2 className="mt-2 text-2xl font-semibold text-slate-950">Choose how you move money</h2>
-      <div className="mt-5 grid gap-3 md:grid-cols-3">
+    <section className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm">
+      <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[0.75fr_1.25fr] lg:p-10">
+        <div>
+          <p className="text-sm font-semibold uppercase text-blue-600">Wallets</p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+            Fund your account your way.
+          </h2>
+          <p className="mt-4 max-w-md text-sm leading-7 text-slate-600">
+            CryptoEx will bring together bank funding, card purchases, and crypto deposits in one
+            wallet experience as funding rails go live.
+          </p>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-3">
         {fundingMethods.map((method) => (
-          <div className="rounded-xl border border-slate-200 bg-white p-4" key={method.title}>
-            <method.icon className="text-blue-600" size={23} />
-            <p className="mt-4 font-semibold text-slate-950">{method.title}</p>
-            <p className="mt-2 text-sm leading-6 text-slate-600">{method.text}</p>
+          <div className="rounded-2xl border border-slate-200 bg-slate-50 p-5" key={method.title}>
+            <div className="grid size-12 place-items-center rounded-2xl bg-white text-blue-600 shadow-sm">
+              <method.icon size={23} />
+            </div>
+            <p className="mt-5 text-lg font-semibold text-slate-950">{method.title}</p>
+            <p className="mt-3 text-sm leading-6 text-slate-600">{method.text}</p>
           </div>
         ))}
+        </div>
       </div>
-    </Card>
+    </section>
   )
 }
 
 export const TrustAndSecurity = () => {
   return (
-    <Card>
-      <p className="text-sm font-semibold uppercase text-emerald-600">Security</p>
-      <h2 className="mt-2 text-2xl font-semibold text-slate-950">Designed to protect accounts before funds move</h2>
-      <div className="mt-5 grid gap-3 md:grid-cols-2">
+    <section className="overflow-hidden rounded-3xl border border-slate-200 bg-[#08111f] text-white shadow-xl">
+      <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-[0.78fr_1.22fr] lg:p-10">
+        <div>
+          <p className="text-sm font-semibold uppercase text-emerald-300">Security</p>
+          <h2 className="mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+            Designed to protect accounts before funds move.
+          </h2>
+          <p className="mt-4 max-w-md text-sm leading-7 text-slate-300">
+            Security is part of the account foundation: verified access, authenticator checks,
+            trusted devices, and step-up protection for sensitive actions.
+          </p>
+        </div>
+
+        <div className="grid gap-4 md:grid-cols-2">
         {trustItems.map((item) => (
-          <div className="flex gap-3 rounded-xl border border-slate-200 bg-slate-50 p-4" key={item.title}>
-            <div className="grid size-10 shrink-0 place-items-center rounded-lg bg-white text-blue-600">
+          <div className="flex gap-4 rounded-2xl border border-white/10 bg-white/8 p-5" key={item.title}>
+            <div className="grid size-12 shrink-0 place-items-center rounded-2xl bg-white/10 text-blue-300">
               <item.icon size={21} />
             </div>
             <div>
-              <p className="font-semibold text-slate-950">{item.title}</p>
-              <p className="mt-1 text-sm leading-6 text-slate-600">{item.text}</p>
+              <p className="text-lg font-semibold">{item.title}</p>
+              <p className="mt-2 text-sm leading-6 text-slate-300">{item.text}</p>
             </div>
           </div>
         ))}
+        </div>
       </div>
-    </Card>
+    </section>
   )
 }

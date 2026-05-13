@@ -1,0 +1,60 @@
+- main [ref=e3]:
+  - generic [ref=e5]:
+    - link "CryptoEx Buy, sell, trade" [ref=e6] [cursor=pointer]:
+      - /url: /
+      - img [ref=e8]
+      - generic [ref=e11]:
+        - paragraph [ref=e12]: CryptoEx
+        - paragraph [ref=e13]: Buy, sell, trade
+    - generic [ref=e14]:
+      - link "Sign in" [ref=e15] [cursor=pointer]:
+        - /url: /auth/login
+      - link "Create account" [ref=e16] [cursor=pointer]:
+        - /url: /auth/signup
+  - generic [ref=e19]:
+    - generic [ref=e22]:
+      - generic [ref=e23]: Create account
+      - heading "Start your CryptoEx account" [level=2] [ref=e24]
+      - paragraph [ref=e25]: Create your account now, verify your email, then add authenticator protection before trading features open.
+      - generic [ref=e27]:
+        - generic [ref=e28]:
+          - text: Email
+          - textbox "Email" [ref=e29]:
+            - /placeholder: aarav@example.com
+        - generic [ref=e30]:
+          - text: Password
+          - textbox "Password" [ref=e31]:
+            - /placeholder: Minimum 8 characters
+        - button "Create account" [ref=e32] [cursor=pointer]:
+          - img [ref=e33]
+          - text: Create account
+      - paragraph [ref=e36]:
+        - text: Already have an account?
+        - link "Sign in" [ref=e37] [cursor=pointer]:
+          - /url: /auth/login
+    - generic [ref=e38]:
+      - generic [ref=e40]:
+        - link "CryptoEx Account opening" [ref=e41] [cursor=pointer]:
+          - /url: /
+          - img [ref=e43]
+          - generic [ref=e46]:
+            - paragraph [ref=e47]: CryptoEx
+            - paragraph [ref=e48]: Account opening
+        - heading "Your first step into secure crypto trading." [level=1] [ref=e49]
+        - paragraph [ref=e50]: Build a verified profile first. Wallet funding, market access, and trading eligibility can grow from this account foundation.
+      - generic [ref=e51]:
+        - generic [ref=e52]:
+          - img [ref=e54]
+          - generic [ref=e57]:
+            - paragraph [ref=e58]: Account setup
+            - paragraph [ref=e59]: Built for security from the first login
+        - generic [ref=e60]:
+          - generic [ref=e61]:
+            - img [ref=e62]
+            - generic [ref=e66]: Verify your email address
+          - generic [ref=e67]:
+            - img [ref=e68]
+            - generic [ref=e72]: Create a protected password
+          - generic [ref=e73]:
+            - img [ref=e74]
+            - generic [ref=e77]: Enable authenticator security after login

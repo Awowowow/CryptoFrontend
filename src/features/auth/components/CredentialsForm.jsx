@@ -14,6 +14,7 @@ const CredentialsForm = ({
   return (
     <form className="space-y-4" onSubmit={onSubmit}>
       <Input
+        autoComplete="email"
         label="Email"
         name="email"
         placeholder="aarav@example.com"
@@ -22,6 +23,7 @@ const CredentialsForm = ({
         onChange={onChange}
       />
       <Input
+        autoComplete={isLogin ? 'current-password' : 'new-password'}
         label="Password"
         name="password"
         placeholder="Minimum 8 characters"

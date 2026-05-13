@@ -12,21 +12,32 @@ const HomeRoute = () => {
   const { user } = useSelector((state) => state.auth)
 
   if (user) {
-    return <Navigate replace to="/overview" />
+    return <Navigate replace to="/security" />
   }
 
   return <LandingPage />
 }
 
+const OverviewRoute = () => {
+  const { user } = useSelector((state) => state.auth)
+
+  if (user) {
+    return <Navigate replace to="/security" />
+  }
+
+  return <OverviewPage />
+}
+
 const App = () => {
   return (
     <Routes>
+      <Route index element={<HomeRoute />} />
       <Route element={<AppShell />}>
-        <Route index element={<HomeRoute />} />
-        <Route path="/overview" element={<OverviewPage />} />
+        <Route path="/overview" element={<OverviewRoute />} />
         <Route path="/auth/login" element={<LoginPage />} />
         <Route path="/auth/signup" element={<SignupPage />} />
         <Route path="/auth/verify-email" element={<VerifyEmailPage />} />
+        <Route path="/verify-email" element={<VerifyEmailPage />} />
         <Route path="/security" element={<SecurityPage />} />
         <Route path="*" element={<Navigate replace to="/" />} />
       </Route>
