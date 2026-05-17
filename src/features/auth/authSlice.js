@@ -1,10 +1,13 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
-import { authApi } from '../../services/api'
+import { authApi, profileApi } from '../../services/api'
 
 
 
 export const signupUser = createAsyncThunk('auth/signupUser', authApi.signup)
+export const hydrateSession = createAsyncThunk('auth/hydrateSession', profileApi.getProfile)
 export const verifyEmail = createAsyncThunk('auth/verifyEmail', authApi.verifyEmail)
+export const forgotPassword = createAsyncThunk('auth/forgotPassword', authApi.forgotPassword)
+export const resetPassword = createAsyncThunk('auth/resetPassword', authApi.resetPassword)
 export const loginUser = createAsyncThunk('auth/loginUser', authApi.login)
 export const verifyTwoFaLogin = createAsyncThunk(
   'auth/verifyTwoFaLogin',
@@ -21,15 +24,25 @@ export const verifyRecentTwoFa = createAsyncThunk(
 )
 export const refreshSession = createAsyncThunk('auth/refreshSession', authApi.refresh)
 export const logoutUser = createAsyncThunk('auth/logoutUser', authApi.logout)
+export const fetchTrustedDevices = createAsyncThunk(
+  'auth/fetchTrustedDevices',
+  authApi.getTrustedDevices,
+)
+export const revokeTrustedDevice = createAsyncThunk(
+  'auth/revokeTrustedDevice',
+  authApi.revokeTrustedDevice,
+)
 
 const initialState = {
   user: null,
+  sessionChecked: false,
   twoFaToken: '',
   twoFaSetup: null,
   status: 'idle',
   message: '',
   error: '',
   recentTwoFaVerified: false,
+  trustedDevices: [],
 }
 
 const getErrorMessage = (action) => action.error?.message || 'Something went wrong'
@@ -52,7 +65,24 @@ const authSlice = createSlice({
         state.status = 'succeeded'
         state.message = action.payload.message
       })
+      .addCase(hydrateSession.fulfilled, (state, action) => {
+        state.status = 'succeeded'
+        state.user = action.payload.data
+        state.sessionChecked = true
+      })
+      .addCase(hydrateSession.rejected, (state) => {
+        state.status = 'idle'
+        state.sessionChecked = true
+      })
       .addCase(verifyEmail.fulfilled, (state, action) => {
+        state.status = 'succeeded'
+        state.message = action.payload.message
+      })
+      .addCase(forgotPassword.fulfilled, (state, action) => {
+        state.status = 'succeeded'
+        state.message = action.payload.message
+      })
+      .addCase(resetPassword.fulfilled, (state, action) => {
         state.status = 'succeeded'
         state.message = action.payload.message
       })
@@ -105,6 +135,18 @@ const authSlice = createSlice({
         state.twoFaToken = ''
         state.twoFaSetup = null
         state.recentTwoFaVerified = false
+        state.trustedDevices = []
+        state.message = action.payload.message
+      })
+      .addCase(fetchTrustedDevices.fulfilled, (state, action) => {
+        state.status = 'succeeded'
+        state.trustedDevices = action.payload.data
+      })
+      .addCase(revokeTrustedDevice.fulfilled, (state, action) => {
+        state.status = 'succeeded'
+        state.trustedDevices = state.trustedDevices.filter(
+          (device) => device.id !== action.meta.arg,
+        )
         state.message = action.payload.message
       })
       .addMatcher(
@@ -116,7 +158,10 @@ const authSlice = createSlice({
         },
       )
       .addMatcher(
-        (action) => action.type.startsWith('auth/') && action.type.endsWith('/rejected'),
+        (action) =>
+          action.type.startsWith('auth/') &&
+          action.type.endsWith('/rejected') &&
+          action.type !== hydrateSession.rejected.type,
         (state, action) => {
           state.status = 'failed'
           state.error = getErrorMessage(action)

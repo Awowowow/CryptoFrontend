@@ -10,22 +10,35 @@ const points = [
 
 const AuthInfoPanel = ({ title = 'Exchange-grade account security' }) => {
   return (
-    <Card className="bg-[#0b111f] text-white">
-      <div className="flex items-center gap-3">
-        <div className="grid size-11 place-items-center rounded-xl bg-blue-500">
-          <ShieldCheck size={22} />
+    <Card className="relative overflow-hidden border-slate-800 bg-[#080f1c] text-white">
+      {/* Top accent line */}
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-500/60 to-transparent" />
+
+      {/* Subtle background glow */}
+      <div className="pointer-events-none absolute -top-16 left-1/2 h-32 w-64 -translate-x-1/2 rounded-full bg-blue-600/10 blur-3xl" />
+
+      <div className="relative flex items-center gap-4">
+        <div className="relative grid size-12 shrink-0 place-items-center rounded-xl border border-blue-500/30 bg-blue-500/10 text-blue-400">
+          <ShieldCheck size={20} />
+          {/* Pulsing dot */}
+          <span className="absolute -right-1 -top-1 size-2.5 rounded-full border-2 border-[#080f1c] bg-emerald-400" />
         </div>
         <div>
-          <p className="text-sm font-semibold uppercase text-blue-200">Security layer</p>
-          <h2 className="text-xl font-semibold">{title}</h2>
+          <p className="text-[0.6875rem] font-bold uppercase tracking-widest text-blue-400/80">
+            Security layer
+          </p>
+          <h2 className="mt-0.5 text-lg font-semibold leading-tight text-white">{title}</h2>
         </div>
       </div>
 
-      <div className="mt-6 grid gap-3">
+      <div className="relative mt-6 space-y-2">
         {points.map((point) => (
-          <div className="flex items-center gap-3 rounded-lg bg-white/8 px-4 py-3" key={point}>
-            <CheckCircle2 className="text-emerald-300" size={18} />
-            <span className="text-sm font-medium text-slate-100">{point}</span>
+          <div
+            className="flex items-center gap-3 rounded-lg border border-white/[0.06] bg-white/[0.04] px-4 py-3 transition hover:bg-white/[0.07]"
+            key={point}
+          >
+            <CheckCircle2 className="shrink-0 text-emerald-400" size={15} />
+            <span className="text-sm font-medium text-slate-300">{point}</span>
           </div>
         ))}
       </div>

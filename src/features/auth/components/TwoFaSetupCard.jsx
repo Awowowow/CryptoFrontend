@@ -14,47 +14,80 @@ const TwoFaSetupCard = ({
   onVerifySetup,
 }) => {
   return (
-    <Card>
-      <div className="flex items-center justify-between gap-4">
+    <Card className="relative overflow-hidden">
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-slate-300 to-transparent" />
+
+      <div className="flex items-start justify-between gap-4">
         <div>
-          <h2 className="text-lg font-semibold">Authenticator setup</h2>
-          <p className="text-sm text-slate-500">Generate QR code and verify setup OTP.</p>
+          <h2 className="text-base font-semibold text-slate-900">Authenticator setup</h2>
+          <p className="mt-0.5 text-sm text-slate-500">
+            Scan QR code with your authenticator app.
+          </p>
         </div>
-        <QrCode className="text-slate-500" size={22} />
+        <div className="grid size-10 shrink-0 place-items-center rounded-xl border border-slate-200 bg-slate-50 text-slate-500">
+          <QrCode size={18} />
+        </div>
       </div>
 
       {!user.isTwoFaEnabled && (
-        <Button className="mt-5 w-full" disabled={isLoading} icon={QrCode} variant="dark" onClick={onSetup}>
+        <Button
+          className="mt-5 w-full"
+          disabled={isLoading}
+          icon={QrCode}
+          variant="dark"
+          onClick={onSetup}
+        >
           Generate 2FA setup
         </Button>
       )}
 
       {setup && (
         <div className="mt-5 space-y-4">
-          <div className="grid place-items-center rounded-lg border border-slate-200 bg-slate-50 p-4">
-            <img alt="2FA setup QR code" className="size-44 rounded-md" src={setup.qrCodeDataUrl} />
+          {/* QR Code display */}
+          <div className="flex flex-col items-center gap-3 rounded-xl border border-slate-200 bg-slate-50 p-5">
+            <img
+              alt="2FA setup QR code"
+              className="size-40 rounded-lg shadow-sm"
+              src={setup.qrCodeDataUrl}
+            />
+            <p className="text-xs text-slate-400">Scan with Google Authenticator or Authy</p>
           </div>
-          <div className="rounded-lg border border-slate-200 p-3">
-            <p className="text-xs font-medium uppercase text-slate-500">Manual key</p>
+
+          {/* Manual key */}
+          <div className="rounded-xl border border-slate-200 bg-slate-50 p-4">
+            <p className="text-[0.6875rem] font-bold uppercase tracking-widest text-slate-400">
+              Manual entry key
+            </p>
             <div className="mt-2 flex items-center gap-2">
-              <code className="flex-1 overflow-hidden rounded-md bg-slate-100 px-3 py-2 text-xs text-slate-700">
+              <code className="flex-1 overflow-x-auto rounded-lg border border-slate-200 bg-white px-3 py-2.5 font-mono text-xs tracking-widest text-slate-700">
                 {setup.manualEntryKey}
               </code>
-              <button className="rounded-md border border-slate-200 p-2" type="button" onClick={onCopy}>
-                <Copy size={16} />
+              <button
+                className="grid size-9 shrink-0 place-items-center rounded-lg border border-slate-200 bg-white text-slate-500 transition hover:border-blue-200 hover:bg-blue-50 hover:text-blue-600 active:scale-95"
+                type="button"
+                onClick={onCopy}
+              >
+                <Copy size={15} />
               </button>
             </div>
           </div>
-          <form className="space-y-4" onSubmit={onVerifySetup}>
-            <Input
-              label="Setup verification code"
-              maxLength={6}
-              placeholder="123456"
-              value={setupOtp}
-              onChange={(event) => onSetupOtpChange(event.target.value)}
-            />
+
+          {/* Verify form */}
+          <form className="space-y-4 rounded-xl border border-slate-200 bg-slate-50/60 p-4" onSubmit={onVerifySetup}>
+            <div>
+              <p className="mb-3 text-[0.6875rem] font-bold uppercase tracking-widest text-slate-400">
+                Confirm setup
+              </p>
+              <Input
+                label="Verification code"
+                maxLength={6}
+                placeholder="Enter 6-digit code from app"
+                value={setupOtp}
+                onChange={(event) => onSetupOtpChange(event.target.value)}
+              />
+            </div>
             <Button className="w-full" disabled={isLoading} icon={CheckCircle2} type="submit">
-              Enable 2FA
+              {isLoading ? 'Enabling...' : 'Enable 2FA'}
             </Button>
           </form>
         </div>

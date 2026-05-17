@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import {
   ArrowRight,
   BarChart3,
@@ -9,8 +10,10 @@ import {
 } from 'lucide-react'
 import { Link } from 'react-router-dom'
 import { FundingMethods, PopularAssets, TrustAndSecurity } from '../components/layout/ProductSections'
+import MarketStrip from '../components/market/MarketStrip'
 import BrandLogo from '../components/ui/BrandLogo'
 import Card from '../components/ui/Card'
+import { fetchMarketOverview } from '../features/market/marketSlice'
 
 const proofPoints = [
   'Authenticator protection for new devices',
@@ -25,7 +28,9 @@ const navItems = [
 ]
 
 const LandingPage = () => {
+  const dispatch = useDispatch()
   const [activeSection, setActiveSection] = useState('exchange')
+  const { assets, status } = useSelector((state) => state.market)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -44,6 +49,16 @@ const LandingPage = () => {
 
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  useEffect(() => {
+    dispatch(fetchMarketOverview())
+
+    const intervalId = window.setInterval(() => {
+      dispatch(fetchMarketOverview())
+    }, 15 * 1000)
+
+    return () => window.clearInterval(intervalId)
+  }, [dispatch])
 
   return (
     <main className="min-h-screen bg-[#f6f8fb] text-slate-950">
@@ -86,7 +101,11 @@ const LandingPage = () => {
       </header>
 
       <div className="px-4 py-6 sm:px-6 lg:px-8">
-        <HeroSection />
+        <HeroSection assets={assets} />
+      </div>
+
+      <div className="px-4 pb-6 sm:px-6 lg:px-8">
+        <MarketStrip assets={assets} />
       </div>
 
       <div className="mx-auto max-w-7xl space-y-8 px-4 pb-8 sm:px-6 lg:px-8">
@@ -94,12 +113,12 @@ const LandingPage = () => {
           <FeatureCard
             icon={CreditCard}
             title="Buy crypto"
-            text="Prepare your account for simple purchase flows with card and bank funding options."
+            text="Start with a verified account designed for simple buying, selling, and funding flows."
           />
           <FeatureCard
             icon={BarChart3}
             title="Trade markets"
-            text="BTC, ETH, and SOL markets are planned with clean account and trading eligibility flows."
+            text="Move from account setup to wallet balances and future trading with one connected experience."
           />
           <FeatureCard
             icon={ShieldCheck}
@@ -108,7 +127,9 @@ const LandingPage = () => {
           />
         </section>
 
-        <PopularAssets />
+        <div id="markets" className="scroll-mt-28">
+          <PopularAssets assets={assets} status={status} />
+        </div>
         <div id="wallets" className="scroll-mt-28">
           <FundingMethods />
         </div>
@@ -120,7 +141,7 @@ const LandingPage = () => {
   )
 }
 
-const HeroSection = () => {
+const HeroSection = ({ assets }) => {
   return (
     <section
       id="exchange"
@@ -151,8 +172,8 @@ const HeroSection = () => {
           </h1>
 
           <p className="mt-5 max-w-lg text-[0.9375rem] leading-7 text-slate-400">
-            Create an account, secure it with authenticator protection, and get ready for simple
-            crypto buying, selling, funding, and trading flows as markets open.
+            Create an account, protect it with authenticator security, complete verification, and
+            manage your crypto account from one exchange experience.
           </p>
 
           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
@@ -165,7 +186,7 @@ const HeroSection = () => {
             </Link>
             <Link
               className="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.06] px-6 py-3 text-sm font-semibold text-slate-200 transition hover:border-white/20 hover:bg-white/10 active:scale-[0.98]"
-              to="/overview"
+              to="#markets"
             >
               Explore the exchange
             </Link>
@@ -173,14 +194,16 @@ const HeroSection = () => {
         </div>
 
         <div className="border-t border-white/[0.07] bg-white/[0.025] p-6 lg:border-l lg:border-t-0 lg:p-10">
-          <HeroTradeCard />
+          <HeroTradeCard assets={assets} />
         </div>
       </div>
     </section>
   )
 }
 
-const HeroTradeCard = () => {
+const HeroTradeCard = ({ assets }) => {
+  const displayedAssets = assets.length ? assets.slice(0, 3) : ['BTC', 'ETH', 'USDT']
+
   return (
     <div className="rounded-2xl border border-white/[0.1] bg-white/[0.07] p-5 shadow-2xl backdrop-blur-sm">
       <div className="flex items-center justify-between gap-3">
@@ -198,25 +221,29 @@ const HeroTradeCard = () => {
           Choose asset
         </p>
         <div className="mt-3 grid grid-cols-3 gap-2">
-          {['BTC', 'ETH', 'SOL'].map((asset, index) => (
+          {displayedAssets.map((asset, index) => {
+            const symbol = typeof asset === 'string' ? asset : asset.symbol
+
+            return (
             <div
               className={`rounded-lg border px-3 py-3 text-center transition cursor-default ${
                 index === 0
                   ? 'border-blue-500/40 bg-blue-500/15 shadow-sm shadow-blue-900/30'
                   : 'border-white/[0.08] bg-white/[0.05] hover:bg-white/10'
               }`}
-              key={asset}
+              key={symbol}
             >
-              <p className="text-sm font-bold tracking-wide text-white">{asset}</p>
+              <p className="text-sm font-bold tracking-wide text-white">{symbol}</p>
             </div>
-          ))}
+            )
+          })}
         </div>
       </div>
 
       <div className="mt-3 grid gap-2 sm:grid-cols-2">
         {[
-          ['Bank transfer', Landmark],
-          ['Debit card', CreditCard],
+          ['Available balance', Landmark],
+          ['Locked balance', CreditCard],
         ].map(([label, Icon]) => (
           <div
             className="flex items-center gap-3 rounded-xl border border-white/[0.08] bg-white/[0.05] px-4 py-3"

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { LockKeyhole, ShieldCheck, Smartphone } from 'lucide-react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 import BrandLogo from '../components/ui/BrandLogo'
 import CredentialsForm from '../features/auth/components/CredentialsForm'
 import TwoFaChallenge from '../features/auth/components/TwoFaChallenge'
@@ -15,6 +15,7 @@ const loginBenefits = [
 
 const LoginPage = () => {
   const dispatch = useDispatch()
+  const location = useLocation()
   const navigate = useNavigate()
   const { status, twoFaToken, user } = useSelector((state) => state.auth)
   const [credentials, setCredentials] = useState({ email: '', password: '' })
@@ -25,9 +26,10 @@ const LoginPage = () => {
 
   useEffect(() => {
     if (user && !twoFaToken) {
-      navigate('/security', { replace: true })
+      const destination = location.state?.from?.pathname ?? '/exchange'
+      navigate(destination, { replace: true })
     }
-  }, [navigate, twoFaToken, user])
+  }, [location.state, navigate, twoFaToken, user])
 
   const handleCredentialsChange = (event) => {
     setCredentials((current) => ({
@@ -126,12 +128,19 @@ const LoginPage = () => {
             </div>
 
             {!twoFaToken && (
-              <p className="mt-6 text-center text-sm text-slate-500">
-                New to CryptoEx?{' '}
-                <Link className="font-semibold text-blue-600 hover:text-blue-700" to="/auth/signup">
-                  Create an account
-                </Link>
-              </p>
+              <div className="mt-6 space-y-3 text-center text-sm text-slate-500">
+                <p>
+                  <Link className="font-semibold text-blue-600 hover:text-blue-700" to="/auth/forgot-password">
+                    Forgot password?
+                  </Link>
+                </p>
+                <p>
+                  New to CryptoEx?{' '}
+                  <Link className="font-semibold text-blue-600 hover:text-blue-700" to="/auth/signup">
+                    Create an account
+                  </Link>
+                </p>
+              </div>
             )}
           </div>
         </div>
